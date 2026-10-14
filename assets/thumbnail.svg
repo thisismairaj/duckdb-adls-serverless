@@ -1,0 +1,56 @@
+<svg width="1200" height="628" viewBox="0 0 1200 628" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="628" fill="url(#bg)"/>
+
+  <!-- Eyebrow label -->
+  <text x="80" y="76" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="14" font-weight="700" letter-spacing="2" fill="#2ea043">
+    OPEN SOURCE &#183; SERVERLESS LAKEHOUSE
+  </text>
+
+  <!-- Terminal card -->
+  <g transform="translate(80,104)">
+    <rect width="1040" height="130" rx="10" fill="#1c2128" stroke="#30363d" stroke-width="1.5"/>
+    <circle cx="28" cy="26" r="6" fill="#ff5f56"/>
+    <circle cx="50" cy="26" r="6" fill="#ffbd2e"/>
+    <circle cx="72" cy="26" r="6" fill="#27c93f"/>
+
+    <text x="28" y="66" font-family="Consolas, 'Courier New', monospace" font-size="18" fill="#8b949e" xml:space="preserve">$ curl https://&lt;func&gt;.azurewebsites.net/api/query</text>
+    <text x="28" y="98" font-family="Consolas, 'Courier New', monospace" font-size="18" xml:space="preserve"><tspan fill="#484f58">&#8594; </tspan><tspan fill="#e3b341" font-weight="700">row_count: 200000</tspan><tspan fill="#484f58"> &#183; 0.0056s (warm)</tspan></text>
+  </g>
+
+  <!-- Pull quote -->
+  <text x="600" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-style="italic" font-size="38" fill="#f0f6fc">
+    The error said it was the cert.
+  </text>
+  <text x="600" y="378" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-style="italic" font-size="38" fill="#f0f6fc">
+    It wasn&#8217;t.
+  </text>
+  <text x="600" y="416" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="18" fill="#6e7681">
+    DuckDB's azure extension vs. Azure Functions &#8212; a real diagnostic trail
+  </text>
+
+  <!-- Footer icon: two layers, decoupled, representing storage/compute split -->
+  <g transform="translate(600,500)">
+    <rect x="-28" y="-6" width="56" height="16" rx="4" fill="none" stroke="#2ea043" stroke-width="2.5"/>
+    <rect x="-20" y="16" width="40" height="16" rx="4" fill="none" stroke="#2ea043" stroke-width="2.5"/>
+  </g>
+
+  <text x="600" y="556" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="22" font-weight="700" fill="#f0f6fc">
+    duckdb-adls-serverless
+  </text>
+  <text x="600" y="582" text-anchor="middle" font-family="Consolas, 'Courier New', monospace"
+        font-size="15" fill="#6e7681">
+    github.com/thisismairaj/duckdb-adls-serverless
+  </text>
+</svg>
