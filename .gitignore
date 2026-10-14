@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.python_packages/
+bin/
+obj/
+local.settings.json
+.vscode/
+.DS_Store
+content/
+.claude-brain/

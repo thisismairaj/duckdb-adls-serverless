@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "STORAGE_ACCOUNT_NAME": "yourstorageaccount",
+    "CONTAINER_NAME": "your-container",
+    "BLOB_PATH": "your-data.parquet"
+  }
+}

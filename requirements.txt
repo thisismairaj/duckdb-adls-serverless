@@ -1,0 +1,5 @@
+azure-functions
+duckdb
+certifi
+azure-identity
+azure-storage-blob
