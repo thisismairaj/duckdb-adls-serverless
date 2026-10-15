@@ -13,6 +13,14 @@ A serverless lakehouse pattern: DuckDB as the query engine, Azure Data Lake Stor
 
 On a cold start, the function authenticates, downloads the file once, and caches it on local disk for the lifetime of that worker instance. On a warm invocation, it skips straight to querying the already-cached file — no network call, no re-authentication, just DuckDB reading a local Parquet file.
 
+## Why this matters
+
+**You stop babysitting a server to answer a question nobody asks twice a minute.** A lakehouse query that only runs occasionally doesn't need a warehouse sitting there idle and billing you for it. This pattern collapses that down: storage holds the file, compute spins up only when someone actually asks, and you pay for the seconds a query takes, not for a cluster you forgot to pause.
+
+The other cost is operational, not just dollars. No connection string or key is ever issued, stored, or rotated. Authentication is a managed identity with one scoped role (`Storage Blob Data Reader`), so there's nothing in the request path to leak and nothing to remember to rotate before it expires.
+
+**One honest limit:** this is a pattern, not a drop-in query API. The deployed endpoint runs one fixed `SELECT COUNT(*)`. Letting it take arbitrary SQL from a request is a SQL-injection-shaped problem you'd still need to solve yourself (parameterization, an allowlist, or a guard layer) before this becomes something the public can query directly.
+
 ## Why it's built this way, specifically
 
 **DuckDB never talks to Azure directly.** The obvious way to do this is DuckDB's own `azure` extension, reading `azure://container/file.parquet` straight off blob storage. We tried that first. It fails on Azure Functions (Linux Consumption, Python) with a misleading `"Problem with the SSL CA cert (path? access rights?)"` error — this is a known issue ([duckdb/duckdb-azure#8](https://github.com/duckdb/duckdb-azure/issues/8)) caused by how the extension's statically-linked libcurl resolves CA certificate paths on certain Linux containers. It is **not** a missing certificate and **not** a permissions problem — both were ruled out directly before concluding it was the extension itself (see [`docs/THE_BUG.md`](docs/THE_BUG.md) for the full diagnostic trail).
